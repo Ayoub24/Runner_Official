@@ -11,7 +11,7 @@ public class Main extends Application{
 
     public void start(Stage primaryStage){
         primaryStage.setTitle("Runner");
-        //primaryStage.setResizable(true);
+        primaryStage.setResizable(false);
         Group root = new Group();
         //Pane pane= new Pane(root);
         GamingScene scene = new GamingScene(root);

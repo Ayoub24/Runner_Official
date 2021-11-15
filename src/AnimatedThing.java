@@ -21,15 +21,11 @@ public abstract class AnimatedThing {
     protected final Integer jumpShoot=4;
 
 
-    public AnimatedThing(double x, double y, Integer attitude, String fileName){
+    public AnimatedThing(double x, double y, String fileName){
         this.xpos=x;
         this.ypos=y;
         Image spriteSheet = new Image(fileName);
         sprite= new ImageView(spriteSheet);
-        if (attitude==1){sprite.setViewport(new Rectangle2D(20,0,60,100));}
-        if (attitude==2){sprite.setViewport(new Rectangle2D(20,160,60,105));}
-        if(attitude==3){sprite.setViewport(new Rectangle2D(95,160,60,105));}
-        if (attitude==4){sprite.setViewport(new Rectangle2D(15,490,70,105));}
     }
 
 /////Getter
@@ -55,6 +51,7 @@ public abstract class AnimatedThing {
     /////Setters
     public void setX(double x){this.xpos=x;}
     public void setY(double y){this.ypos=y;}
+    public void setAttitude(Integer a){this.attitude=a;}
 
 
 
