@@ -3,22 +3,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public abstract class AnimatedThing {
-    private double xpos;
-    private double ypos;
+    protected double xpos;
+    protected double ypos;
     private Integer attitude;
     private ImageView sprite;
-    private int index;
-    private int duration;
-    private int maxIndex;
-    private int length;
-    private int width;
-    private int offset;
-
-
-    protected final Integer running=1;
-    protected final Integer jumpingUp=2;
-    protected final Integer jumpingDw=3;
-    protected final Integer jumpShoot=4;
+    protected int length;
+    protected int width;
 
 
     public AnimatedThing(double x, double y, String fileName){
@@ -26,6 +16,7 @@ public abstract class AnimatedThing {
         this.ypos=y;
         Image spriteSheet = new Image(fileName);
         sprite= new ImageView(spriteSheet);
+        sprite.setViewport(new Rectangle2D(0,0,53,84));
     }
 
 /////Getter
@@ -48,11 +39,14 @@ public abstract class AnimatedThing {
         }
         return null;
     }
+
+
     /////Setters
     public void setX(double x){this.xpos=x;}
     public void setY(double y){this.ypos=y;}
     public void setAttitude(Integer a){this.attitude=a;}
 
+    public Rectangle2D getHitBox(){return new Rectangle2D(xpos,ypos,this.getSprite().getViewport().getWidth(),this.getSprite().getViewport().getHeight());}
 
 
 }

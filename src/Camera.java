@@ -5,11 +5,15 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 public class Camera {
     private double x;
     private double y;
-    private double ax=0,ay=0,vx=150,vy,k=1.3,f=1.2,m, lastTime;
+    private double ax=0,ay=0,vx=150,vy,k=1.3,f=1.2,lastTime;
     Hero hero;
+
+
 
     public Camera(int x, int y, Hero h) {
         this.x = x;
@@ -17,12 +21,12 @@ public class Camera {
         this.hero=h;
     }
 
+
+
     public void update(long time){
         double deltatime=(time-lastTime)/100000000.0;
-        //System.out.println(time);
         if(deltatime>0.016){
             if(deltatime < 6) {
-                //System.out.println(x + ", " + vx + ", " + ax);
                 x = x + vx * deltatime;
                 y = y + vy * deltatime;
                 vx = vx + ax * deltatime;
@@ -32,9 +36,6 @@ public class Camera {
             }
             lastTime=time;
         }
-
-        //ax=k*(center.getX())
-
     }
 /////Getters
     double getX(){return x;}
@@ -47,6 +48,4 @@ public class Camera {
     public String toString(){
         return "Camera coordinates: "+x+","+y;
     }
-
-
 }
